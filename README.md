@@ -56,6 +56,7 @@
 - Commit early and often. We want to be able to check your progress
 - Make the app public. Deploy it using the service of your choice
 - Write the instruction on how to run the app by rewriting this README.md
+- Don't forget to write your name, email, and phone number on this file
 - Create a pull request
 - Please complete your working solution within 7 days of receiving this challenge, and be sure to notify us when it is submitted by sending us email through faizal@gapai.id with title format **[SE - Submission] - yourname** and send me the related link.
 
