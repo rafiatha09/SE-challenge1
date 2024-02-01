@@ -1,26 +1,21 @@
+# React Test: Simple Personal Blog
 
-# React Test: Interactive Recipe Book
+**Challenge**: This test asks the candidate to build a single-page application (SPA) for a simple personal blog. The goal is to test their understanding of JavaScript, React, CSS frameworks (specifically responsiveness/mobile-friendliness), Git version control, and their ability to write clean, efficient, and maintainable code.
 
-**Challenge**: This test asks the candidate to build a single-page application (SPA) for an interactive recipe book. The goal is to test their understanding of JavaScript, React, CSS frameworks (specifically responsiveness/mobile-friendliness), Git version control, and their ability to write clean, efficient, and maintainable code.
+The [following Figma layout needs to be developed](https://www.figma.com/file/Lpk703811Gv3PNmn2ydlGP/Free-Blog-Template--%7C-Modern-%26-Creative-design-(Community)?type=design&mode=design).
 
-## Features:
+It's important to say that it is just a prototype! We would also like to see your ability to propose improvements, features and new contributions to the product's UI 😄! Use the layout only as reference!
 
-### Recipe List:
-  - Display a list of recipes with title, image, and key ingredients.
-  - Allow filtering recipes by category (e.g., breakfast, lunch, dinner, dessert).
-  - Enable searching for recipes by name or ingredient.
-### Recipe Details:
-  - On clicking a recipe, open a detailed view with full instructions, ingredients list with quantities, and cooking time.
-  - Allow users to mark ingredients as "added" to facilitate shopping list creation.
-  - Provide an option to scale the recipe for different portions.
-### Additional Functionality:
-  - Implement pagination for the recipe list (optional).
-  - Enable users to add their own recipes (bonus points).
-  - Integrate a timer functionality for cooking (bonus points).
+## Scenario:
+
+You are tasked with building the frontend for a simple personal blog. User can read a blog and write a blog. The web-app should allow for the following functionalities:
+
+- Viewing listed blog (you can create your own data)
+- Post creation, editing, and deletion
 
 ## Tech Requirements
 
-- Use React.
+- Use React JS as the primary framework.
 - Choose a modern CSS framework like Material UI or Chakra UI for responsive design and mobile-friendliness.
 - Utilize Git for version control throughout the development process.
 - Focus on writing clean, well-organized, and commented code.
@@ -41,7 +36,7 @@
 - Effective use of comments and documentation.
 - Adherence to best practices for code structure and indentation.
 ### Bonus Points:
-- Create your own mock-up API to fetch the data.
+- Create your own mock-up API from the other [challenge](https://github.com/GapaiID/SE-challenge2) to fetch the data.
 - Implementation of mobile responsive design.
 - Implementation of additional features beyond the basic requirements.
 - Creative and innovative solutions to technical challenges.
@@ -53,11 +48,11 @@
 - The challenge is on!
 - Build a performant, clean and well-structured solution
 - Commit early and often. We want to be able to check your progress
-- Make the app public. Deploy it using the service of your choice
+- Make the app public. Deploy it using the service of your choice (to gain bonus point!)
 - Write the instruction on how to run the app by rewriting this README.md
 - Don't forget to write your name, email, and phone number on this file
 - Create a pull request (ref: https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project)
-- Please submit your working solution before 31th Jan 2024, 10.00 AM
+- Please submit your working solution before 6th Feb 2024, 19.00 PM (Submitting before that is always a plus point)
 - Be sure to notify us when it is submitted by sending us email through faizal@gapai.id with title format **[SE - Submission] - yourname** and send me the related link.
 
 Happy Hacking! 🤘
