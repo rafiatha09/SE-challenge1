@@ -41,6 +41,7 @@ You are tasked with building the frontend for a simple personal blog. User can r
 - Implementation of additional features beyond the basic requirements.
 - Creative and innovative solutions to technical challenges.
 - Deploy your work to a cloud platform (e.g., Heroku, AWS, docker) and share your link through the email.
+- *FEEL FREE* to add any functionality or feature that you might see can benefit the app
 
 ## Instructions
 
@@ -52,7 +53,7 @@ You are tasked with building the frontend for a simple personal blog. User can r
 - Write the instruction on how to run the app by rewriting this README.md
 - Don't forget to write your name, email, and phone number on this file
 - Create a pull request (ref: https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project)
-- Please submit your working solution before 6th Feb 2024, 19.00 PM (Submitting before that is always a plus point)
+- Please submit your working solution before 7th Feb 2024, 11.00 AM (Submitting before that is always a plus point)
 - Be sure to notify us when it is submitted by sending us email through faizal@gapai.id with title format **[SE - Submission] - yourname** and send me the related link.
 
 Happy Hacking! 🤘
