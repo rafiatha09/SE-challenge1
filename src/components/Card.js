@@ -1,19 +1,21 @@
-import React from 'react';
+import React from "react";
 
-const Card = ({ title, author, date, tag, imageUrl, description }) => {
+const Card = ({ title, author, date, tag, imageUrl, imageAuthor }) => {
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white">
-      <img className="w-full" src={imageUrl} alt="Article" />
-      <div className="px-6 py-4">
-        <div className="font-bold text-xs text-indigo-600 uppercase tracking-wide">{tag}</div>
-        <h3 className="font-bold text-lg mb-2">{title}</h3>
-        <p className="text-gray-700 text-base">
-          {description}
-        </p>
+    <div className="max-w-sm overflow-hidden border bg-white rounded-xl cursor-pointer">
+      <img className="w-full p-4" src={imageUrl} alt="Article" />
+      <div className="px-4 space-y-3">
+        <div className="bg-[#4B6BFB0D] w-fit p-2 rounded-md">
+          <div className="font-bold text-xs text-[#4B6BFB] tracking-wide">
+            {tag}
+          </div>
+        </div>
+        <h3 className="font-bold text-xl">{title}</h3>
       </div>
-      <div className="px-6 py-4">
-        <div className="font-bold text-sm mb-2">{author}</div>
-        <p className="text-gray-600 text-xs">{date}</p>
+      <div className="px-4 flex py-6 text-[#97989F] justify-start gap-4 items-center">
+        <img className="w-lg" src={imageAuthor} alt="Author" />
+        <div className="text-sm ">{author}</div>
+        <p className="text-sm">{date}</p>
       </div>
     </div>
   );

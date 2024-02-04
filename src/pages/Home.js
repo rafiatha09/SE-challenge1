@@ -1,11 +1,15 @@
 import React from "react";
 import { FaFacebookF, FaTwitter, FaInstagram, FaPlay } from "react-icons/fa";
 import Avatar from "../images/Image.svg";
+import Card from "../components/Card";
+import ImageOne from "../images/Rectangle 38 (1).svg";
+import ImageAuthor from '../images/Image (1).svg';
+import { AddPost } from '../components/Button.js';
 
 const Home = () => {
   return (
-    <div className="w-full flex justify-center shadow py-6 bg-white">
-      <div className="max-w-7xl w-full">
+    <div className="w-full flex justify-center shadow py-6 bg-white h-full">
+      <div className="max-w-7xl w-full h-full">
         <div className="h-[350px] bg-[#F6F6F7] rounded-xl">
           <div className="rounded-lg p-6 flex flex-col items-center text-center gap-4 h-full">
             <div className="flex gap-4 justify-center items-center mt-5">
@@ -56,10 +60,44 @@ const Home = () => {
           </div>
         </div>
         <div className="flex-col">
-          <div className="text-xl py-6">
+          <div className="text-xl flex justify-between py-6 items-center">
             <p>Latest Post</p>
+            <AddPost />
           </div>
-          <div className="">Card</div>
+          <div className="grid grid-cols-3 gap-16 ">
+            <Card
+              title="The Impact of Technology on the Workplace: How Technology is Changing"
+              author="Tracey Wilson"
+              date="August 20, 2022"
+              tag="Technology"
+              imageUrl={ImageOne}
+              imageAuthor= {ImageAuthor}
+            />
+            <Card
+              title="The Impact of Technology on the Workplace: How Technology is Changing"
+              author="Tracey Wilson"
+              date="August 20, 2022"
+              tag="Technology"
+              imageUrl={ImageOne}
+              imageAuthor= {ImageAuthor}
+            />
+            <Card
+              title="The Impact of Technology on the Workplace: How Technology is Changing"
+              author="Tracey Wilson"
+              date="August 20, 2022"
+              tag="Technology"
+              imageUrl={ImageOne}
+              imageAuthor= {ImageAuthor}
+            />
+            <Card
+              title="The Impact of Technology on the Workplace: How Technology is Changing"
+              author="Tracey Wilson"
+              date="August 20, 2022"
+              tag="Technology"
+              imageUrl={ImageOne}
+              imageAuthor= {ImageAuthor}
+            />
+          </div>
         </div>
       </div>
     </div>

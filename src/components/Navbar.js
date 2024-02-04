@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Switch } from "@headlessui/react";
 import Logo from "../images/Logo.svg";
+import { FiSun } from "react-icons/fi";
 
 const Navbar = () => {
   const [enabled, setEnabled] = useState(false);
@@ -49,17 +50,18 @@ const Navbar = () => {
           <Switch
             checked={enabled}
             onChange={setEnabled}
-            className={`${enabled ? "bg-teal-900" : "bg-teal-700"}
-          relative inline-flex h-[28px] w-[48px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white/75`}
+            className={`${
+              enabled ? "bg-blue-500" : "bg-gray-300"
+            } relative inline-flex items-center h-10 rounded-full w-20 transition-colors focus:outline-none`}
           >
-            <span className="sr-only">Use setting</span>
+            <span className="sr-only">Enable notifications</span>
             <span
-              aria-hidden="true"
               className={`${
-                enabled ? "translate-x-5 mt-[1px]" : "translate-x-0 mt-[1px]"
-              }
-            pointer-events-none inline-block h-[24px] w-[24px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
-            />
+                enabled ? "translate-x-2" : "translate-x-10"
+              } inline-block w-8 h-8 transform bg-white rounded-full transition-transform`}
+            >
+              {/* <FiSun className={`text-gray-600 ${enabled ? "" : "hidden"}`} /> */}
+            </span>
           </Switch>
         </div>
       </div>
