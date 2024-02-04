@@ -33,18 +33,14 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="flex justify-center items-center gap-4">
-          {/* <input></input> */}
-          <div className="flex items-center border-2 border-gray-300 rounded-full p-1">
+          <div className="flex items-center border-2 border-gray-300 rounded-full p-2 text-xs">
             <input
               className="pl-2 outline-none rounded-l-full w-full"
               type="text"
               placeholder="Search"
             />
             <button className="p-1 rounded-r-full">
-              {/* <svg className="h-4 w-4 text-gray-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-      <!-- Your search icon SVG path goes here -->
-      <path d="..." />
-    </svg> */}
+              
             </button>
           </div>
           <Switch
@@ -52,13 +48,13 @@ const Navbar = () => {
             onChange={setEnabled}
             className={`${
               enabled ? "bg-blue-500" : "bg-gray-300"
-            } relative inline-flex items-center h-10 rounded-full w-20 transition-colors focus:outline-none`}
+            } relative inline-flex items-center h-8 rounded-full w-16 transition-colors focus:outline-none`}
           >
             <span className="sr-only">Enable notifications</span>
             <span
               className={`${
-                enabled ? "translate-x-2" : "translate-x-10"
-              } inline-block w-8 h-8 transform bg-white rounded-full transition-transform`}
+                enabled ? "translate-x-1" : "translate-x-9"
+              } inline-block w-6 h-6 transform bg-white rounded-full transition-transform`}
             >
               {/* <FiSun className={`text-gray-600 ${enabled ? "" : "hidden"}`} /> */}
             </span>
