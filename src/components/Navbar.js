@@ -16,26 +16,26 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="text-sm flex justify-between items-center gap-6">
-          <Link className="flex-none" to="/?cat=art">
+          <Link className="flex-none" to="/">
             <h6>Home</h6>
           </Link>
-          <Link className=" flex-none" to="/?cat=science">
+          <Link className=" flex-none" to="/">
             <h6>Blog</h6>
           </Link>
-          <Link className=" flex-none" to="/?cat=technology">
+          <Link className=" flex-none" to="/">
             <h6>Single Post</h6>
           </Link>
-          <Link className=" flex-none" to="/?cat=cinema">
+          <Link className=" flex-none" to="/">
             <h6>Pages</h6>
           </Link>
-          <Link className=" flex-none" to="/?cat=design">
+          <Link className=" flex-none" to="/">
             <h6>Contact</h6>
           </Link>
         </div>
         <div className="flex justify-center items-center gap-4">
-          <div className="flex items-center border-2 border-gray-300 rounded-full p-2 text-xs">
+          <div className="flex items-center border-2 border-gray-100 rounded-lg p-2 text-xs w-[150px] bg-gray-100">
             <input
-              className="pl-2 outline-none rounded-l-full w-full"
+              className="outline-none rounded-l-full w-full bg-gray-100"
               type="text"
               placeholder="Search"
             />
@@ -47,8 +47,8 @@ const Navbar = () => {
             checked={enabled}
             onChange={setEnabled}
             className={`${
-              enabled ? "bg-blue-500" : "bg-gray-300"
-            } relative inline-flex items-center h-8 rounded-full w-16 transition-colors focus:outline-none`}
+              enabled ? "bg-blue-500" : "bg-gray-200"
+            } relative inline-flex items-center h-8 rounded-full w-16 transition-colors focus:outline-none border-gray-100`}
           >
             <span className="sr-only">Enable notifications</span>
             <span

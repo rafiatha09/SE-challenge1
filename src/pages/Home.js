@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaFacebookF, FaTwitter, FaInstagram, FaPlay } from "react-icons/fa";
 import Avatar from "../images/Image.svg";
 import Card from "../components/Card";
 import ImageOne from "../images/Rectangle 38 (1).svg";
-import ImageAuthor from '../images/Image (1).svg';
-import { AddPost } from '../components/Button.js';
+import ImageAuthor from "../images/Image (1).svg";
+import { AddPost } from "../components/Button.js";
 
 const Home = () => {
+  const [name_id, setNameId] = useState("")
+
+  useEffect(() => {
+    localStorage.setItem("name_id", "Jonathan Doe")
+    setNameId("Jonathan Doe")
+  },[])
+
   return (
     <div className="w-full flex justify-center shadow py-6 bg-white h-full">
       <div className="max-w-7xl w-full h-full">
@@ -20,8 +27,8 @@ const Home = () => {
                   alt="Jonathan Doe"
                 />
               </div>
-              <div className="flex-col">
-                <h1 className="text-lg ">Jonathan Doe</h1>
+              <div className="flex-col text-left">
+                <h1 className="text-lg ">{name_id}</h1>
                 <p className="text-gray-600 text-xs">Collaborator & Editor</p>
               </div>
             </div>
@@ -71,7 +78,7 @@ const Home = () => {
               date="August 20, 2022"
               tag="Technology"
               imageUrl={ImageOne}
-              imageAuthor= {ImageAuthor}
+              imageAuthor={ImageAuthor}
             />
             <Card
               title="The Impact of Technology on the Workplace: How Technology is Changing"
@@ -79,7 +86,7 @@ const Home = () => {
               date="August 20, 2022"
               tag="Technology"
               imageUrl={ImageOne}
-              imageAuthor= {ImageAuthor}
+              imageAuthor={ImageAuthor}
             />
             <Card
               title="The Impact of Technology on the Workplace: How Technology is Changing"
@@ -87,7 +94,7 @@ const Home = () => {
               date="August 20, 2022"
               tag="Technology"
               imageUrl={ImageOne}
-              imageAuthor= {ImageAuthor}
+              imageAuthor={ImageAuthor}
             />
             <Card
               title="The Impact of Technology on the Workplace: How Technology is Changing"
@@ -95,7 +102,7 @@ const Home = () => {
               date="August 20, 2022"
               tag="Technology"
               imageUrl={ImageOne}
-              imageAuthor= {ImageAuthor}
+              imageAuthor={ImageAuthor}
             />
           </div>
         </div>

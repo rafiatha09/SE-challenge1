@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import ImageOne from "../images/Rectangle 38 (1).svg";
 import Avatar from "../images/Image.svg";
+import { DeleteButton, EditButton } from "../components/Button";
 
-const Blog = () => {
+const Post = () => {
   const location = useLocation();
   const postId = location.pathname.split("/")[2];
+  const [name_id, setNameId] = useState("");
+
+  useEffect(() => {
+    // localStorage.setItem("name_id", "Jonathan Doe");
+    setNameId(localStorage.getItem("name_id"));
+  }, []);
   return (
     <div className="w-full flex justify-center">
       <div className="flex flex-col max-w-3xl gap-5">
-        {/* Blog {postId} */}
         <div className="text-xs p-2 bg-[#4B6BFB] text-white w-fit rounded-lg">
           <p>Technology</p>
         </div>
@@ -18,11 +24,11 @@ const Blog = () => {
         </p>
         <div className="flex gap-5 items-center text-xs text-[#696A75]">
           <img className="w-8" src={Avatar}></img>
-          <p>Tracey Wilson</p>
+          <p>{name_id}</p>
           <p>August 20, 2022</p>
         </div>
         <img className="h-[520px] bg-cover" src={ImageOne} alt="Author" />
-        <div className="flex flex-col gap-8 pb-14 text-base">
+        <div className="flex flex-col gap-8 pb-4 text-base">
           <p>
             Traveling is an enriching experience that opens up new horizons,
             exposes us to different cultures, and creates memories that last a
@@ -47,9 +53,13 @@ const Blog = () => {
             surroundings.
           </p>
         </div>
+        <div className="pb-8 space-x-4 w-full">
+          <EditButton />
+          <DeleteButton />
+        </div>
       </div>
     </div>
   );
 };
 
-export default Blog;
+export default Post;

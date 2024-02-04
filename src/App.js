@@ -10,6 +10,8 @@ import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Blog from "./pages/Blog";
+import AddPostForm from "./pages/AddPostForm";
+import EditPostForm from "./pages/EditPostForm";
 
 const Layout = () => {
   return (
@@ -31,11 +33,19 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/blog/:blogId",
+        path: "/post/:postId",
         element: <Blog />,
       },
+      {
+        path: "/add-post",
+        element: <AddPostForm />,
+      },
+      {
+        path: "/edit-post",
+        element: <EditPostForm />,
+      },
     ],
-  }
+  },
 ]);
 
 function App() {
