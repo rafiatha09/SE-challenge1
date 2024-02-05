@@ -10,7 +10,6 @@ const Post = () => {
   const [name_id, setNameId] = useState("");
 
   useEffect(() => {
-    // localStorage.setItem("name_id", "Jonathan Doe");
     setNameId(localStorage.getItem("name_id"));
   }, []);
   return (

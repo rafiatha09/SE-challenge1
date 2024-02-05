@@ -5,13 +5,21 @@ import Card from "../components/Card";
 import ImageOne from "../images/Rectangle 38 (1).svg";
 import ImageAuthor from "../images/Image (1).svg";
 import { AddPost } from "../components/Button.js";
+import { useSelector, useDispatch } from 'react-redux';
+import { setPosts } from "../helper/postAction.js";
+import { postData } from "../helper/data.js";
+
 
 const Home = () => {
   const [name_id, setNameId] = useState("")
+  const dispatch = useDispatch();
+  const posts = useSelector((state) => state.post.posts);
+  console.log(posts)
 
   useEffect(() => {
     localStorage.setItem("name_id", "Jonathan Doe")
     setNameId("Jonathan Doe")
+    dispatch(setPosts(postData));
   },[])
 
   return (

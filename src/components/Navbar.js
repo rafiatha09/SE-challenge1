@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Switch } from "@headlessui/react";
 import Logo from "../images/Logo.svg";
 import { FiSun } from "react-icons/fi";
+import { FaSearch } from 'react-icons/fa';
+import { FaMoon } from 'react-icons/fa';
 
 const Navbar = () => {
   const [enabled, setEnabled] = useState(false);
@@ -35,28 +37,31 @@ const Navbar = () => {
         <div className="flex justify-center items-center gap-4">
           <div className="flex items-center border-2 border-gray-100 rounded-lg p-2 text-xs w-[150px] bg-gray-100">
             <input
-              className="outline-none rounded-l-full w-full bg-gray-100"
+              className="outline-none w-full bg-gray-100"
               type="text"
               placeholder="Search"
             />
             <button className="p-1 rounded-r-full">
-              
+              <FaSearch className={`w-3 h-3 text-gray-400`}/>
             </button>
           </div>
           <Switch
             checked={enabled}
             onChange={setEnabled}
             className={`${
-              enabled ? "bg-blue-500" : "bg-gray-200"
-            } relative inline-flex items-center h-8 rounded-full w-16 transition-colors focus:outline-none border-gray-100`}
+              enabled ? "bg-blue-500" : "bg-gray-100"
+            } relative inline-flex items-center h-10 rounded-full w-20 transition-colors focus:outline-none border-gray-100`}
           >
             <span className="sr-only">Enable notifications</span>
             <span
               className={`${
-                enabled ? "translate-x-1" : "translate-x-9"
-              } inline-block w-6 h-6 transform bg-white rounded-full transition-transform`}
+                enabled ? "translate-x-1" : "translate-x-11"
+              } inline-block w-8 h-8 transform bg-white rounded-full transition-transform absolute`}
             >
-              {/* <FiSun className={`text-gray-600 ${enabled ? "" : "hidden"}`} /> */}
+              {enabled ? 
+              <FiSun className={`text-black relative top-2 left-2 ${enabled ? "" : "hidden"}`} /> :
+              <FaMoon className={`text-black relative top-2 left-2 ${enabled ? "hidden" : ""}`} /> 
+              }
             </span>
           </Switch>
         </div>
