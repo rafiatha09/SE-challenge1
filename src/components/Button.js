@@ -30,12 +30,12 @@ export const AddPost = ({ onClick }) => {
   );
 };
 
-export const EditButton = () => {
+export const EditButton = ({postId}) => {
   const navigate = useNavigate();
 
   const handleEdit = () => {
     // Navigate to the edit post page
-    navigate('/edit-post');
+    navigate('/edit-post/' + postId);
   };
 
   return (

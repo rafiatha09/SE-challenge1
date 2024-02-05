@@ -1,20 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import { postData } from "../helper/data";
+import imageFour from "../images/Rectangle 38 (4).svg";
+import jonathan from "../images/Image (1).svg";
+import { AddPostModal, Modal } from "../components/Modal";
 
 const AddPostForm = () => {
   const [postType, setPostType] = useState("");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
+  const [isOpenSuccess, setIsOpenSuccess] = useState(false); 
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    let createdDate = new Date();
-    let options = { year: 'numeric', month: 'long', day: 'numeric' };
-    let formattedDate = createdDate.toLocaleDateString("en-US", options);
+    setIsOpenSuccess(true);
+  };
 
-    console.log({ postType, title, content, formattedDate });
+  const redirectClick = () => {
+    let createdDate = new Date();
+    let options = { year: "numeric", month: "long", day: "numeric" };
+    let formattedDate = createdDate.toLocaleDateString("en-US", options);
+    postData.push({
+      id: postData.length + 1,
+      type: postType,
+      title: title,
+      createdBy: "Jonathan Doe",
+      createdAt: formattedDate,
+      image: imageFour,
+      avatar: jonathan,
+      content: content,
+    });
+    setIsOpenSuccess(false)
   };
   return (
     <div className="w-full flex justify-center bg-white h-full">
+      <Modal variant="primary" isOpen={isOpenSuccess} closeModal={() => setIsOpenSuccess(false)} description="Are you sure?" rightButtonText="Submit" onClickRight={redirectClick} leftButtonText="Cancel"/>
       <div className="max-w-3xl w-full h-full py-12">
         <div className="w-full flex justify-center shadow-lg border bg-white h-full">
           <div className="container mx-auto p-8">

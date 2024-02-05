@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Card = ({ title, author, date, tag, imageUrl, imageAuthor }) => {
+const Card = ({ title, author, date, tag, imageUrl, imageAuthor, postId }) => {
   return (
-    <div className="max-w-sm overflow-hidden border bg-white rounded-xl cursor-pointer">
+    <Link to={`/post/${postId}`} className="max-w-sm overflow-hidden border bg-white rounded-xl cursor-pointer">
       <img className="w-full p-4" src={imageUrl} alt="Article" />
       <div className="px-4 space-y-3">
         <div className="bg-[#4B6BFB0D] w-fit p-2 rounded-md">
@@ -17,8 +18,9 @@ const Card = ({ title, author, date, tag, imageUrl, imageAuthor }) => {
         <div className="text-sm ">{author}</div>
         <p className="text-sm">{date}</p>
       </div>
-    </div>
+    </Link>
   );
 };
+
 
 export default Card;

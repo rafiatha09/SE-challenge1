@@ -2,25 +2,21 @@ import React, { useEffect, useState } from "react";
 import { FaFacebookF, FaTwitter, FaInstagram, FaPlay } from "react-icons/fa";
 import Avatar from "../images/Image.svg";
 import Card from "../components/Card";
-import ImageOne from "../images/Rectangle 38 (1).svg";
-import ImageAuthor from "../images/Image (1).svg";
 import { AddPost } from "../components/Button.js";
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
 import { setPosts } from "../helper/postAction.js";
 import { postData } from "../helper/data.js";
 
-
 const Home = () => {
-  const [name_id, setNameId] = useState("")
+  const [name_id, setNameId] = useState("");
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.post.posts);
-  console.log(posts)
 
   useEffect(() => {
-    localStorage.setItem("name_id", "Jonathan Doe")
-    setNameId("Jonathan Doe")
+    localStorage.setItem("name_id", "Jonathan Doe");
+    setNameId("Jonathan Doe");
     dispatch(setPosts(postData));
-  },[])
+  }, []);
 
   return (
     <div className="w-full flex justify-center shadow py-6 bg-white h-full">
@@ -79,39 +75,19 @@ const Home = () => {
             <p>Latest Post</p>
             <AddPost />
           </div>
-          <div className="grid grid-cols-3 gap-16 ">
-            <Card
-              title="The Impact of Technology on the Workplace: How Technology is Changing"
-              author="Tracey Wilson"
-              date="August 20, 2022"
-              tag="Technology"
-              imageUrl={ImageOne}
-              imageAuthor={ImageAuthor}
-            />
-            <Card
-              title="The Impact of Technology on the Workplace: How Technology is Changing"
-              author="Tracey Wilson"
-              date="August 20, 2022"
-              tag="Technology"
-              imageUrl={ImageOne}
-              imageAuthor={ImageAuthor}
-            />
-            <Card
-              title="The Impact of Technology on the Workplace: How Technology is Changing"
-              author="Tracey Wilson"
-              date="August 20, 2022"
-              tag="Technology"
-              imageUrl={ImageOne}
-              imageAuthor={ImageAuthor}
-            />
-            <Card
-              title="The Impact of Technology on the Workplace: How Technology is Changing"
-              author="Tracey Wilson"
-              date="August 20, 2022"
-              tag="Technology"
-              imageUrl={ImageOne}
-              imageAuthor={ImageAuthor}
-            />
+          <div className="grid grid-cols-3 gap-16 pb-8">
+            {posts.map((post) => (
+              <Card
+                key={post.id}
+                title={post.title}
+                author={post.createdBy}
+                date={post.createdAt}
+                tag={post.type}
+                imageUrl={post.image}
+                imageAuthor={post.avatar}
+                postId={post.id}
+              />
+            ))}
           </div>
         </div>
       </div>

@@ -1,60 +1,79 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import ImageOne from "../images/Rectangle 38 (1).svg";
-import Avatar from "../images/Image.svg";
 import { DeleteButton, EditButton } from "../components/Button";
+import { useSelector, useDispatch } from "react-redux";
+import { setPosts } from "../helper/postAction.js";
+import { postData } from "../helper/data.js";
+import { Modal } from "../components/Modal.js";
 
 const Post = () => {
   const location = useLocation();
   const postId = location.pathname.split("/")[2];
   const [name_id, setNameId] = useState("");
+  const dispatch = useDispatch();
+  const posts = useSelector((state) => state.post.posts);
+  const [post, setPost] = useState([]);
+
+  const [isOpenSuccess, setIsOpenSuccess] = useState(false); 
+
+  const redirectClick = () => {
+    console.log("Delete post with id: ", postId)
+    setIsOpenSuccess(false)
+  };
+
+  const handleDelete = (event) => {
+    event.preventDefault();
+    setIsOpenSuccess(true);
+  };
+
 
   useEffect(() => {
     setNameId(localStorage.getItem("name_id"));
+    dispatch(setPosts(postData));
+    for (let index = 0; index < posts.length; index++) {
+      const post = posts[index];
+      if (post.id == postId) {
+        if (typeof post.content === "string") {
+          post.content = post.content.split("\n");
+        }
+        setPost(post);
+        break;
+      }
+    }
   }, []);
+
   return (
     <div className="w-full flex justify-center">
+      <Modal
+        variant="danger"
+        isOpen={isOpenSuccess}
+        closeModal={() => setIsOpenSuccess(false)}
+        description="Are you sure?"
+        rightButtonText="Delete"
+        onClickRight={redirectClick}
+        leftButtonText="Cancel"
+      />
       <div className="flex flex-col max-w-3xl gap-5">
         <div className="text-xs p-2 bg-[#4B6BFB] text-white w-fit rounded-lg">
-          <p>Technology</p>
+          <p>{post.type}</p>
         </div>
-        <p className="text-2xl font-semibold">
-          The Impact of Technology on the Workplace: How Technology is Changing
-        </p>
+        <p className="text-2xl font-semibold">{post.title}</p>
         <div className="flex gap-5 items-center text-xs text-[#696A75]">
-          <img className="w-8" src={Avatar}></img>
+          <img className="w-8" src={post.avatar}></img>
           <p>{name_id}</p>
-          <p>August 20, 2022</p>
+          <p>{post.createdAt}</p>
         </div>
-        <img className="h-[520px] bg-cover" src={ImageOne} alt="Author" />
+        <img className="h-[520px] bg-cover" src={post.image} alt="Author" />
         <div className="flex flex-col gap-8 pb-4 text-base">
-          <p>
-            Traveling is an enriching experience that opens up new horizons,
-            exposes us to different cultures, and creates memories that last a
-            lifetime. However, traveling can also be stressful and overwhelming,
-            especially if you don't plan and prepare adequately. In this blog
-            article, we'll explore tips and tricks for a memorable journey and
-            how to make the most of your travels.
-          </p>
-          <p>
-            One of the most rewarding aspects of traveling is immersing yourself
-            in the local culture and customs. This includes trying local
-            cuisine, attending cultural events and festivals, and interacting
-            with locals. Learning a few phrases in the local language can also
-            go a long way in making connections and showing respect.
-          </p>
-          <p>
-            Finally, don't forget to capture memories of your journey. Whether
-            it's through photographs, journaling, or souvenirs, preserving the
-            moments and experiences of your travels can bring joy and nostalgia
-            for years to come. However, it's also essential to be present in the
-            moment and not let technology distract you from the beauty of your
-            surroundings.
-          </p>
+          {post.content?.map((paragraph, index) => (
+            <p key={index} className="">
+              {paragraph}
+            </p>
+          ))}
         </div>
         <div className="pb-8 space-x-4 w-full">
-          <EditButton />
-          <DeleteButton />
+          <EditButton postId={post.id} />
+          <DeleteButton onDelete={handleDelete}/>
         </div>
       </div>
     </div>
